@@ -11,4 +11,10 @@ a song, concert and move cli for console searches through Spotify and OMDB's API
 ![](liri.gif)
 
 # Node packages and APIs used
+* axios
+* spotify api
+* spotify npm package
+* file system
+* OMDB api
+* Bands in town API
 
