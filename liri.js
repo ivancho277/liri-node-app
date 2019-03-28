@@ -10,13 +10,14 @@ var command = process.argv[2];
 var term = process.argv.splice(3).join(" ");
 console.log(term);
 
-function appendtofile(str){
-    fs.appendFile("log.txt", `\n${str}`, (err)=>{
-        try{
-            
-        }catch{
-            throw err
-        }
+function appendtofile(data){
+    fs.appendFile("log.txt", `\n${data}`, (err)=>{
+      if(err){
+          console.log(err);
+      }
+      else{
+          console.log("wrote to file")
+      }
     })
 }
 
