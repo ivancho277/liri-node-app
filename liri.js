@@ -30,6 +30,8 @@ function search(command, term) {
                     console.log("Venue Name: " + response.data[0].venue.name);
                     console.log("City: " + response.data[0].venue.city + ", " + response.data[0].venue.country);
                     console.log("Time: " + response.data[0].datetime);
+                    var str = `${response.data[0].venue.name} ${response.data[0].venue.city + ", " + response.data[0].venue.country} ${response.data[0].datetime}`
+                    appendtofile(str);
                 } catch (err) {
                     throw err;
                 }
@@ -45,6 +47,7 @@ function search(command, term) {
                     console.log("Artist: " + data.tracks.items[0].artists[0].name);
                     console.log("Album:  " + data.tracks.items[0].album.name);
                     console.log("Preview Link: " + data.tracks.items[0].external_urls.spotify)
+                    var str = `${data.tracks.items[0].artists[0].name} ${data.tracks.items[0].album.name} ${data.tracks.items[0].external_urls.spotify}`
                 } catch (err) {
                     throw err
                 }
@@ -63,6 +66,7 @@ function search(command, term) {
                         console.log("Language: " + response.data.Language)
                         console.log("Plot: " + response.data.Plot)
                         console.log("Actors: " + response.data.Actors)
+                        var str = `${response.data.Title} ${response.data.Year} ${response.data.imdbRating} ${response.data.Ratings[2].Value} ${response.data.Country} ${response.data.Language} ${response.data.Plot} ${response.data.Actors}`
                     })
             } else {
                 axios.get("http://www.omdbapi.com/?t=Mr.+Nobody&y=&plot=short&apikey=9bf695ae").then(
