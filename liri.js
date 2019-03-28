@@ -1,11 +1,12 @@
 require("dotenv").config();
 var axios = require("axios");
 var keys = require("./keys.js");
+var Spotify = require("node-spotify-api")
 
-//var spotify = new Spotify(keys.spotify);
+var spotify = new Spotify(keys.spotify);
 
 var command = process.argv[2];
-var term = process.argv.splice(3).join("");
+var term = process.argv.splice(3).join(" ");
 console.log(term);
 
 
@@ -26,6 +27,17 @@ switch(command){
 
     break;
     case("spotify-this-song"):
+        spotify.search( {type: 'track', query: term }, (err, data) => {
+            try{
+                console.log("Artist: "+data.tracks.items[0].artists[0].name);
+                console.log("Album:  "+data.tracks.items[0].album.name);
+                console.log("Preview Link: " + data.tracks.items[0].external_urls.spotify)
+            }
+
+            catch(err){
+                throw err
+            }
+        })
 
     break;
     case("movie-this"):
