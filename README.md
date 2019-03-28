@@ -9,3 +9,6 @@ a song, concert and move cli for console searches through Spotify and OMDB's API
 
 # gif of how it works
 ![](liri.gif)
+
+# Node packages and APIs used
+
