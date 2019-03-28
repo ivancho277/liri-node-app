@@ -48,6 +48,7 @@ function search(command, term) {
                     console.log("Album:  " + data.tracks.items[0].album.name);
                     console.log("Preview Link: " + data.tracks.items[0].external_urls.spotify)
                     var str = `${data.tracks.items[0].artists[0].name} ${data.tracks.items[0].album.name} ${data.tracks.items[0].external_urls.spotify}`
+                    appendtofile(str);
                 } catch (err) {
                     throw err
                 }
@@ -67,6 +68,7 @@ function search(command, term) {
                         console.log("Plot: " + response.data.Plot)
                         console.log("Actors: " + response.data.Actors)
                         var str = `${response.data.Title} ${response.data.Year} ${response.data.imdbRating} ${response.data.Ratings[2].Value} ${response.data.Country} ${response.data.Language} ${response.data.Plot} ${response.data.Actors}`
+                        appendtofile(str);
                     })
             } else {
                 axios.get("http://www.omdbapi.com/?t=Mr.+Nobody&y=&plot=short&apikey=9bf695ae").then(
